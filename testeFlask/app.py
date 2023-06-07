@@ -10,7 +10,7 @@ conexaoBanco = Conexao(os.getenv("DBNAME"),os.getenv("HOST"),os.getenv("PORT"),o
 
 @app.route("/")
 def index():
-    return "bem vindo"
+    return "bem vindo"+os.getenv("DBNAME")
 
 @app.route("/version")
 def version():
