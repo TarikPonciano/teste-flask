@@ -20,13 +20,13 @@ def version():
 @app.route("/Pokemons")
 def listaPokemon():
 
-    pokedex = conexaoBanco.consultarBanco('''Select * From "Pokedex"''')
+    # pokedex = conexaoBanco.consultarBanco('''Select * From "Pokedex"''')
 
-    listaPokemons = []
+    # listaPokemons = []
 
-    for pokemon in pokedex:
+    # for pokemon in pokedex:
 
-        listaPokemons.append({'id':pokemon[0], 'especie':pokemon[1]})
+    #     listaPokemons.append({'id':pokemon[0], 'especie':pokemon[1]})
 
     return "Este"
 
