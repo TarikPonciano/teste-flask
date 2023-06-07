@@ -29,7 +29,7 @@ class Conexao:
         except(Exception, psycopg2.Error) as error:
             print("Ocorreu um erro no objeto Conexão:", error)
 
-            return False
+            return "Ocorreu um erro "+error
         
     def manipularBanco(self, sql):
         try:
@@ -48,4 +48,4 @@ class Conexao:
         except(Exception, psycopg2.Error) as error:
             print("Ocorreu um erro:", error)
 
-            return False
+            return "Ocorreu um erro "+error

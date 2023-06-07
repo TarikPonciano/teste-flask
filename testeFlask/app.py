@@ -1,12 +1,12 @@
 from flask import *
 from Controle.classConexao import Conexao
 import os
-import env
+# import env
 
 
 app = Flask(__name__)
-# conexaoBanco = Conexao(os.getenv("DBNAME"),os.getenv("HOST"),os.getenv("PORT"),os.getenv("USER"),os.getenv("PASSWORD"))
-conexaoBanco = Conexao(env.dbname,env.host,env.port,env.user,env.password)
+conexaoBanco = Conexao(os.getenv("DBNAME"),os.getenv("HOST"),os.getenv("PORT"),os.getenv("USER"),os.getenv("PASSWORD"))
+# conexaoBanco = Conexao(env.dbname,env.host,env.port,env.user,env.password)
 
 @app.route("/")
 def index():
