@@ -15,7 +15,7 @@ def index():
 @app.route("/version")
 def version():
 
-    return conexaoBanco.consultarBanco("Select version()")
+    return "Teste"
 
 @app.route("/Pokemons")
 def listaPokemon():
@@ -28,7 +28,7 @@ def listaPokemon():
 
         listaPokemons.append({'id':pokemon[0], 'especie':pokemon[1]})
 
-    return listaPokemons
+    return "Este"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
