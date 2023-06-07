@@ -44,7 +44,7 @@ class Conexao:
             cursor.close()
             con.close()
 
-            return True
+            return "Deu Certo"
         except(Exception, psycopg2.Error) as error:
             print("Ocorreu um erro:", error)
 
