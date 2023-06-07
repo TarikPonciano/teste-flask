@@ -1,12 +1,12 @@
 from flask import *
 from Controle.classConexao import Conexao
-import os
-# import env
+
+import env
 
 
 app = Flask(__name__)
-conexaoBanco = Conexao(os.getenv("DBNAME"),os.getenv("HOST"),os.getenv("PORT"),os.getenv("USER"),os.getenv("PASSWORD"))
-# conexaoBanco = Conexao(env.dbname,env.host,env.port,env.user,env.password)
+
+conexaoBanco = Conexao(env.dbname,env.host,env.port,env.user,env.password)
 
 @app.route("/")
 def index():
@@ -15,20 +15,20 @@ def index():
 @app.route("/version")
 def version():
 
-    return "Teste"
+    return conexaoBanco.consultarBanco("Select version()")
 
 @app.route("/Pokemons")
 def listaPokemon():
 
-    # pokedex = conexaoBanco.consultarBanco('''Select * From "Pokedex"''')
+    pokedex = conexaoBanco.consultarBanco('''Select * From "Pokedex"''')
 
-    # listaPokemons = []
+    listaPokemons = []
 
-    # for pokemon in pokedex:
+    for pokemon in pokedex:
 
-    #     listaPokemons.append({'id':pokemon[0], 'especie':pokemon[1]})
+        listaPokemons.append({'id':pokemon[0], 'especie':pokemon[1]})
 
-    return "Este"
+    return jsonify(listaPokemons)
 
 if __name__ == "__main__":
     app.run(debug=True)
